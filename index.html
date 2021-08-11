@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom font start-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@700&display=swap" rel="stylesheet">
+    <!-- custom font end-->
+
+    <!-- title star here -->
+    <link rel="icon" href="./asset/img/logo.svg" type="image/gif" sizes="16x16"> 
+    <title>Current Course</title>
+    <!-- title end here -->
+
+    <!-- custom css start here-->
+    <link rel="stylesheet" href="style.css">
+    <!-- custom css end here -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./asset/img/logo.svg" alt="logo">
+            <span>Current Course</span>
+        </div>
+       
+            <div id="sorting">   
+                <button data-key="sort" class="btn-effect">Sort By</button>
+            <select name="order" id="order">
+                <option value="day_left txtW">Day left</option>
+                <option value="most txtW">most time taking</option>
+            </select>
+            </div>
+
+            <div class="search">
+                <button data-key="search" class="btn-effect">search</button>
+                <input type="search">
+            </div>
+
+    </header>
+    <!-- script start here -->
+    <script src="./app.js"></script>
+    <!-- script end -->
+</body>
+</html>
