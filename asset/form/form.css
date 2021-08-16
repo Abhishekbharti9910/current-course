@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --secondary: #05386b;
+    --textColor: #edf5e1;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height:80vh;
+    border-radius: 12px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    color: var(--textColor);
+}
+
+.form-label{
+    margin-top: 30px;
+    font-size: 30px;
+    /* max-width: 40vw; */
+}
+
+.form-input{
+    margin-top: 15px;
+    font-size: 20px;
+    color: var(--secondary);
+    width: 30vw;
+    text-align: center;
+}
+
+.title-id{
+    margin-top: 0;
+}
+
+.form-btn{
+    margin-top: 30px;
+    width: 40%;
+    height: 40px;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--secondary);
+}
+
+.form-btn:hover{
+    opacity: 0.7;
+}
+
+#formCancel{
+    display: block;
+    position: relative;
+    top: -15px;
+    right: -199px;
+    /* font-weight: 800; */
+    color: white;
+    transition: all 0.7s ease;
+    cursor: pointer;
+    font-size: 40px;
+    opacity: 0.8;
+}
+
+#formCancel:hover{
+    transform: scale(0.8) rotate(90deg);
+    opacity: 0.7;
+}
+
+
+@media only screen and (max-width: 768px){
+    form{
+        width: 90%;
+    }
+    .form-input{
+        width: 60%;
+    }
+    #formCancel{
+        display: block;
+        position: relative;
+        top: -25px;
+        right: -134px;
+        color: white;
+        transition: all 0.7s ease;
+        cursor: pointer;
+        font-size: 40px;
+        opacity: 0.7;
+    }
+}

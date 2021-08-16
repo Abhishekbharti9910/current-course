@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --cardBackground: #05386b;
+    --cardFontColor: white;
+}
+.cardI{
+    margin-top: 12px;
+    /* margin-bottom:  ; */
+}
+.card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(150deg, var(--cardBackground), #379683 100%);
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #ccc;
+    width: 370px;
+    height: auto;
+    /* margin: auto; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--cardFontColor);
+}
+#dayLeft{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#cred{
+   color: green;
+}
+
+#del{
+    display: block;
+    position: relative;
+    top: 8px;
+    right: -152px;
+    font-weight: 800;
+    color: white;
+    transition: all 0.7s ease;
+    cursor: pointer;
+}
+
+#del:hover{
+    transform: scale(0.8) rotate(90deg);
+    opacity: 0.8;
+}

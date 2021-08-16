@@ -52,7 +52,7 @@ select{
     padding: 2px 12px 2px;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 12px;
     color: var(--secondary);
     font-family: 'Otomanopee One', sans-serif;
 }
@@ -76,8 +76,49 @@ select{
     color: teal;
 }
 /* search button end */
+
+/* add button */
+.add{
+    cursor: pointer;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    background-color: white;
+    border-radius: 50px;
+    transition: transform 0.6 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+#add-btn{
+position: absolute;
+right: 14px;
+font-size: 50px;
+}
+
+.add:hover{
+    transform: scale(1.1) rotate(90deg);
+    opacity: 0.9;
+}
+/* add button end */
+
+/* script styles */
+.compCard{
+    opacity: 0.6;
+}
+.inActive{
+    display: none;
+}
+.blur{
+    opacity: 0.5;
+}
+/* script styles end*/
+
+/* media quaries */
 @media only screen and (max-width: 768px) {
     header{
+        margin-top: 0px;
         width: 100%;
         height: auto;
         border-radius: 0px;

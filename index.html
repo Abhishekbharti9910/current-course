@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <!-- custom font end-->
 
     <!-- title star here -->
@@ -18,10 +22,12 @@
 
     <!-- custom css start here-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./asset/card/cardStyle.css">
+    <link rel="stylesheet" href="./asset/form/form.css">
     <!-- custom css end here -->
 </head>
 <body>
-    <header>
+    <header class="">
         <div class="logo">
             <img src="./asset/img/logo.svg" alt="logo">
             <span>Current Course</span>
@@ -41,6 +47,44 @@
             </div>
 
     </header>
+    <main class="content">
+        <div class="card-container">
+            <span id="del">X</span>
+            <div class="cardI"><h2>Title</h2></div>
+            <div class="cardI"><h4>Source</h4></div>
+            <div class="cardI"><h4>Day to complete</h4></div>
+            <div class="cardI" id="dayLeft">
+                <div id="cred">●</div>
+                <div><h4>Day left</h4></div>
+            </div>
+            <div class="mark"><button class="btn-effect">Completed</button></div>
+        </div>
+
+        <!-- add button -->
+        <div class="add">
+            <span id="add-btn">+</span>
+        </div>
+        <!-- add button end -->
+    </main>
+
+    <!-- main end and form starts -->
+    <div class="form inActive">
+        <form action="">
+            <span id="formCancel">X</span>
+        <label for="title" class="form-label" id="title-id">Course</label>
+        <input type="text" id="title" class="form-input" >
+
+        <label for="source" class="form-label">Source</label>
+        <input type="text" id="source" class="form-input">
+
+        <label for="day2comp" class="form-label">Day to complete</label>
+        <input type="text" id="day2comp" class="form-input">
+
+        <button class="form-btn">Add Course</button>
+        </form>
+    </div>
+    <!-- form end -->
+
     <!-- script start here -->
     <script src="./app.js"></script>
     <!-- script end -->
