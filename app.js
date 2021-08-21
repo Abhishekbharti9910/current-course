@@ -1,28 +1,53 @@
-let myLibrary = [];
+    // all dom selected item
+    const addBtn = document.querySelector(".add");
+    const form = document.querySelector(".form");
+    const header = document.querySelector("header");
+    let main = document.querySelector("main");
+    const cancelAdd = document.querySelector("#formCancel");
+    const title = document.querySelector("#title");
+    const cardAddBtn = document.querySelector(".form-btn"); 
+    const source = document.querySelector("#source");
+    const day2Com = document.querySelector("#day2comp");
+
+    // selection of dom element end here
+
+let myCourses = [];
 
 function Course(ttle, src, day2Com, compltd) {
-  this.tilte = ttle;
+  this.title = ttle;
   this.source = src;
   this.day2Complete = day2Com;
   this.dayLeft = day2Com;
   this.completed = compltd;
 }
 
+//card template and methods on card
+const MethodOnCourse = {
+  htmlMarkup:  function(){
+          const template = `<div class="card-container">
+          <span id="del">X</span>
+          <div class="cardI"><h2>${this.title}</h2></div>
+          <div class="cardI"><h4>Source : ${this.source}</h4></div>
+          <div class="cardI"><h4>Day to complete : ${this.day2Complete}</h4></div>
+          <div class="cardI" id="dayLeft">
+              <div id="cred">●</div>
+              <div><h4>Day left : ${this.dayLeft}</h4></div>
+          </div>
+          <div class="mark"><button class="btn-effect">${this.completed}</button></div>
+          </div>`
+        return template;
+  },
+//course id function
+// course date left function
+// course complete function
+}
+// card template end here 
+
+Course.prototype = Object.create(MethodOnCourse);
+
 function addCourseToLibrary() {
 
-    // all dom selected item
-    const addBtn = document.querySelector(".add");
-    const form = document.querySelector(".form");
-    const header = document.querySelector("header");
-    const main = document.querySelector("main");
-    const cancelAdd = document.querySelector("#formCancel");
-    const title = document.querySelector("#title");
-    const cardAddBtn = document.querySelector(".form-btn"); 
-    const source = document.querySelector("#source");
-    const day2Com = document.querySelector("#day2comp");
-    // selection of dom element end here
-
-    // add button functionality
+  // add button functionality
     addBtn.addEventListener("click", ()=>{
       // console.log(form);
        form.classList.toggle("inActive");
@@ -37,15 +62,88 @@ function addCourseToLibrary() {
       main.classList.toggle("blur");
     });
 
+    //driver function 
     cardAddBtn.addEventListener("click", (e)=>{
       e.preventDefault();
-      console.log(title.value );
-      console.log(source.value);
-      console.log(day2Com.value);
-      form.classList.add("inActive");
-      header.classList.toggle("blur");
-      main.classList.toggle("blur");
+      let course = new Course(title.value, source.value, day2Com.value);
+      console.log(!isCourseExist(course));
+      if(!isCourseExist(course)){
+        addCourse(course);
+        addInMain(course);
+        form.classList.add("inActive");
+        header.classList.toggle("blur");
+        main.classList.toggle("blur");
+      }
+      else{
+        document.querySelector("#warn").classList.remove("inActive");
+      }
     })
+
+    // add courses array to local storage
+    function addToLocalStorage(arr) {
+      localStorage.setItem("myCourses", JSON.stringify(arr));
+    }
+
+    // function to check weather the following course exist or not
+    function isCourseExist(course) {
+      myCourses = JSON.parse(localStorage.getItem("myCourses")) || [];
+      for (let item of myCourses) {
+        if (item.title == course.title) { return true; }
+      }
+      return false;
+    }
     
+    // add course to myCourses
+    function addCourse(course) {
+      myCourses = JSON.parse(localStorage.getItem("myCourses")) || [];
+      myCourses.push(course);
+      localStorage.removeItem("myCourses");
+      // console.log(myCourses);
+      addToLocalStorage(myCourses);
+    }
+
+    // function for adding class without harming stuff alredy present there
+    function addInMain(course) {
+      main.innerHTML += course.htmlMarkup();
+    }
+    
+
 }
-addCourseToLibrary() 
+
+// making tamplate for object for onload
+function htmlMarkup(course) {
+  const template = `<div class="card-container">
+<span id="del">X</span>
+<div class="cardI"><h2>${course.title}</h2></div>
+<div class="cardI"><h4>Source : ${course.source}</h4></div>
+<div class="cardI"><h4>Day to complete : ${course.day2Complete}</h4></div>
+<div class="cardI" id="dayLeft">
+    <div id="cred">●</div>
+    <div><h4>Day left : ${course.dayLeft}</h4></div>
+</div>
+<div class="mark"><button class="btn-effect">${course.completed}</button></div>
+</div>`
+return template;
+};
+
+// this add in main function add course present in local storage
+// to page on load 
+function addInMain(course) {
+  main.innerHTML += course;
+}
+let addFromLStorage = function () {
+ const localData = JSON.parse(localStorage.getItem("myCourses"));
+  for (let i = 0; i < localData.length; i++) {
+       addInMain(htmlMarkup(localData[i]))
+  }
+}
+
+let rmvWarn = function() {
+  console.log("hello");
+  title.addEventListener("keydown", ()=>{
+    document.querySelector("#warn").classList.add("inActive");
+  })
+}
+rmvWarn();
+addCourseToLibrary(); 
+addFromLStorage();

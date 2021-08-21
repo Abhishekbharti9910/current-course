@@ -61,11 +61,11 @@
         </div>
 
         <!-- add button -->
-        <div class="add">
-            <span id="add-btn">+</span>
-        </div>
-        <!-- add button end -->
     </main>
+    <div class="add">
+        <span id="add-btn">+</span>
+    </div>
+    <!-- add button end -->
 
     <!-- main end and form starts -->
     <div class="form inActive">
@@ -73,6 +73,9 @@
             <span id="formCancel">X</span>
         <label for="title" class="form-label" id="title-id">Course</label>
         <input type="text" id="title" class="form-input" >
+        <span style="color: red; font-size: 16px;" id="warn" class="inActive">
+            Course is already in your schedule
+        </span>
 
         <label for="source" class="form-label">Source</label>
         <input type="text" id="source" class="form-input">

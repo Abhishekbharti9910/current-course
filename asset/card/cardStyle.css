@@ -26,6 +26,8 @@
     font-weight: 500;
     font-size: 26px;
     color: var(--cardFontColor);
+    margin-top: 9px;
+    margin-left: 9px;
 }
 #dayLeft{
     display: flex;
