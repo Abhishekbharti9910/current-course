@@ -28,6 +28,7 @@
 </head>
 <body>
     <header class="">
+
         <div class="logo">
             <img src="./asset/img/logo.svg" alt="logo">
             <span>Current Course</span>
@@ -47,9 +48,11 @@
             </div>
 
     </header>
+
     <main class="content">
-        <div class="card-container">
-            <span id="del">X</span>
+
+        <div class="card-container default">
+            <span id="del" data-title="default" onclick="deleteCard()">X</span>
             <div class="cardI"><h2>Title</h2></div>
             <div class="cardI"><h4>Source</h4></div>
             <div class="cardI"><h4>Day to complete</h4></div>
@@ -74,7 +77,6 @@
         <label for="title" class="form-label" id="title-id">Course</label>
         <input type="text" id="title" class="form-input" >
         <span style="color: red; font-size: 16px;" id="warn" class="inActive">
-            Course is already in your schedule
         </span>
 
         <label for="source" class="form-label">Source</label>
@@ -87,7 +89,11 @@
         </form>
     </div>
     <!-- form end -->
-
+<!-- footer -->
+<footer>
+<p>Copyright © 2021 abhishek bharti <a href="https://github.com/Abhishekbharti9910">github</a></p>
+</footer>
+<!-- footer end-->
     <!-- script start here -->
     <script src="./app.js"></script>
     <!-- script end -->
